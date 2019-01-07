@@ -1,0 +1,12 @@
+import os
+import tarfile
+import urllib.request
+
+url = 'http://vision.cs.utexas.edu/projects/StyleEmbedding/attributes_dataset.tar'
+
+file_tmp = urllib.request.urlretrieve(url, filename=None)[0]
+base_name = os.path.basename(url)
+
+file_name, file_extension = os.path.splitext(base_name)
+tar = tarfile.open(file_tmp)
+tar.extractall(file_name)
